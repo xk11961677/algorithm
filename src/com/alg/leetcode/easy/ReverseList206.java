@@ -1,5 +1,7 @@
 package com.alg.leetcode.easy;
 
+import com.alg.leetcode.struct.ListNode;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -11,16 +13,6 @@ package com.alg.leetcode.easy;
  * @author
  */
 public class ReverseList206 {
-
-    public class ListNode {
-        int val;
-
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
 
     /**
@@ -63,16 +55,16 @@ public class ReverseList206 {
     public static void main(String[] args) {
         ReverseList206 clazz = new ReverseList206();
         ListNode listNode = clazz.headCreate(null, 1);
-        clazz.printList(listNode);
+        listNode.print();
 
         ListNode reverseAfterList = clazz.reverseList(listNode);
-        clazz.printList(reverseAfterList);
+        reverseAfterList.print();
 
         ListNode sourceLlistNode = clazz.iterator(reverseAfterList);
-        clazz.printList(sourceLlistNode);
+        sourceLlistNode.print();
 
         ListNode listNodeByTailCreate = clazz.tailCreate(null, null, 1);
-        clazz.printList(listNodeByTailCreate);
+        listNodeByTailCreate.print();
 
     }
 
@@ -115,20 +107,7 @@ public class ReverseList206 {
         return tail;
     }
 
-    /**
-     * 打印链表
-     * @param node
-     */
-    public void printList(ListNode node) {
-        if(node == null) {
-            throw new IllegalArgumentException();
-        }
-        while(node != null) {
-            System.out.print(node.val+"\t");
-            node = node.next;
-        }
-        System.out.println();
-    }
+
 
 
 }

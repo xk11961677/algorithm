@@ -1,55 +1,51 @@
 package com.alg.leetcode.medium;
 
+import com.alg.leetcode.struct.ListNode;
+
 /**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ * int val;
+ * ListNode next;
+ * ListNode(int x) { val = x; }
+ * }
+ *
  * @author
  */
 public class AddTwoNumbers02 {
 
-    private static class ListNode {
-        int val;
-        ListNode next;
 
-        ListNode(int x) {
-            val = x;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        //使用哨兵方式
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+        int prev = 0;
+        while (l1 != null || l2 != null) {
+            int x = (l1 != null) ? l1.val : 0;
+            int y = (l2 != null) ? l2.val : 0;
+            int sum = prev + x + y;
+            ListNode node = new ListNode(sum % 10);
+            curr.next = node;
+            curr = node;
+            prev = sum / 10;
+            if (l1 != null) {
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                l2 = l2.next;
+            }
         }
+        if (prev == 1) {
+            curr.next = new ListNode(1);
+        }
+        return dummy.next;
     }
 
-    /**
-     * Definition for singly-linked list.
-     * public class ListNode {
-     * int val;
-     * ListNode next;
-     * ListNode(int x) { val = x; }
-     * }
-     */
-    static class Solution {
-
-        public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            ListNode dummyHead = new ListNode(0);
-            ListNode p = l1, q = l2, curr = dummyHead;
-            int carry = 0;
-            while (p != null || q != null) {
-                int x = (p != null) ? p.val : 0;
-                int y = (q != null) ? q.val : 0;
-                int sum = carry + x + y;
-                carry = sum / 10;
-                curr.next = new ListNode(sum % 10);
-                curr = curr.next;
-                if (p != null) p = p.next;
-                if (q != null) q = q.next;
-            }
-            if (carry > 0) {
-                curr.next = new ListNode(carry);
-            }
-            return dummyHead.next;
-        }
-    }
 
     public static void main(String[] args) {
         ListNode listNode2 = new ListNode(2);
         ListNode listNode4 = new ListNode(4);
         ListNode listNode3 = new ListNode(3);
-
         listNode2.next = listNode4;
         listNode4.next = listNode3;
 
@@ -59,20 +55,12 @@ public class AddTwoNumbers02 {
         listNode5.next = listNode6;
         listNode6.next = listNode4_1;
 
+        /************************************************/
 
-        ListNode listNode = new Solution().addTwoNumbers(listNode2, listNode5);
 
-        printList(listNode);
+        ListNode listNode = new AddTwoNumbers02().addTwoNumbers(listNode2, listNode5);
+
+        listNode.print();
     }
 
-    public static void printList(ListNode node) {
-        if (node == null) {
-            throw new IllegalArgumentException();
-        }
-        while (node != null) {
-            System.out.print(node.val + "\t");
-            node = node.next;
-        }
-        System.out.println();
-    }
 }
