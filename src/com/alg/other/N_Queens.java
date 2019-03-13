@@ -2,12 +2,11 @@ package com.alg.other;
 
 /**
  * 回溯法求解 N 皇后问题
- *
  */
 public class N_Queens {
 
     // 皇后的个数
-    private int queensNum = 4;
+    private int queensNum = 8;
 
     // column[i] = j 表示第 i 列的第 j 行放置一个皇后
     private int[] queens = new int[queensNum + 1];
@@ -27,7 +26,7 @@ public class N_Queens {
             rowExists[i] = false;
         }
 
-        for(int i = 0; i < queensNum * 2; i++) {
+        for (int i = 0; i < queensNum * 2; i++) {
             a[i] = b[i] = false;
         }
     }
@@ -50,12 +49,12 @@ public class N_Queens {
                 rowExists[row] = a[row + column - 1] = b[queensNum + column - row] = true;
 
                 // 全部尝试过，打印
-                if(column == queensNum) {
-                    for(int col = 1; col <= queensNum; col++) {
-                        System.out.print("("+col + "," + queens[col] + ")  ");
+                if (column == queensNum) {
+                    for (int col = 1; col <= queensNum; col++) {
+                        System.out.print("(" + col + "," + queens[col] + ")  ");
                     }
                     System.out.println();
-                }else {
+                } else {
                     // 放置下一列的皇后
                     testing(column + 1);
                 }
