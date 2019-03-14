@@ -4,31 +4,32 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 /**
- * Created by sky on 16/3/14.
  * 普通树
+ *
+ * @author
  */
 public class Tree {
 
-    static class node{
+    static class node {
         int value;
         ArrayList<node> children = new ArrayList<node>();
     }
 
 
-
     /**
      * 广度遍历,使用 队列
+     *
      * @param n
      */
-    public static void  levelOrder(node n) {
-        ArrayDeque<node>  queue = new ArrayDeque<node>();
+    public static void levelOrder(node n) {
+        ArrayDeque<node> queue = new ArrayDeque<node>();
         queue.add(n);
-        while(queue.isEmpty()==false) {
+        while (queue.isEmpty() == false) {
             node no = queue.remove();
-            System.out.print(no.value+"\t");
-            if(no.children.size()>0) {
+            System.out.print(no.value + "\t");
+            if (no.children.size() > 0) {
                 ArrayList<node> children = no.children;
-                for (int i=0;i<children.size();i++){
+                for (int i = 0; i < children.size(); i++) {
                     queue.add(children.get(i));
                 }
             }
@@ -38,23 +39,25 @@ public class Tree {
 
     /**
      * 深度遍历,使用 栈
+     *
      * @param n
      */
-    public static void  deathOrder(node n) {
-        ArrayDeque<node>  stack = new ArrayDeque<node>();
+    public static void deathOrder(node n) {
+        ArrayDeque<node> stack = new ArrayDeque<node>();
         stack.push(n);
-        while(stack.isEmpty()==false) {
+        while (stack.isEmpty() == false) {
             node no = stack.pop();
-            System.out.print(no.value+"\t");
-            if(no.children.size()>0) {
+            System.out.print(no.value + "\t");
+            if (no.children.size() > 0) {
                 ArrayList<node> children = no.children;
-                for (int i=children.size()-1; i>=0 ;i--){
+                for (int i = children.size() - 1; i >= 0; i--) {
                     stack.push(children.get(i));
                 }
             }
         }
         System.out.println("\n");
     }
+
 
 
 
@@ -96,11 +99,6 @@ public class Tree {
 
         deathOrder(root);
     }
-
-
-
-
-
 
 
 }

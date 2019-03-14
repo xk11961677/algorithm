@@ -1,8 +1,9 @@
 package com.alg.other;
 
 /**
- * Created by sky on 16/3/13.
  * 求公共子串
+ *
+ * @author
  */
 public class PublicString {
     /**
@@ -17,9 +18,9 @@ public class PublicString {
         str2 = str2.toLowerCase();
         int len1 = str1.length();
         int len2 = str2.length();
-        String min = null;
-        String max = null;
-        String target = null;
+        String min;
+        String max;
+        String target;
         min = len1 <= len2 ? str1 : str2;
         max = len1 > len2 ? str1 : str2;
         //最外层：min子串的长度，从最大长度开始
@@ -106,21 +107,21 @@ public class PublicString {
 //    }
 
     /**
-     *   substring1:abcd
-     *   substring2:abaaaaa
-     *   2	1	1	1	1	1	1	0
-     *   1	1	0	0	0	0	0	0
-     *   0	0	0	0	0	0	0	0
-     *   0	0	0	0	0	0	0	0
-     *   0	0	0	0	0	0	0	0
-     *   ab
-     *   2
+     * substring1:abcd
+     * substring2:abaaaaa
+     * 2	1	1	1	1	1	1	0
+     * 1	1	0	0	0	0	0	0
+     * 0	0	0	0	0	0	0	0
+     * 0	0	0	0	0	0	0	0
+     * 0	0	0	0	0	0	0	0
+     * ab
+     * 2
+     *
      * @param str1
      * @param str2
      * @return
      */
-    public static int computeQueue(char[] str1, char[] str2)
-    {
+    public static int computeQueue(char[] str1, char[] str2) {
         int substringLength1 = str1.length;
         int substringLength2 = str2.length;
 
@@ -128,13 +129,11 @@ public class PublicString {
         int[][] opt = new int[substringLength1 + 1][substringLength2 + 1];
 
         // 从后向前，动态规划计算所有子问题。也可从前到后。
-        for (int i = substringLength1 - 1; i >= 0; i--)
-        {
-            for (int j = substringLength2 - 1; j >= 0; j--)
-            {
-                if (str1[i] == str2[j])
+        for (int i = substringLength1 - 1; i >= 0; i--) {
+            for (int j = substringLength2 - 1; j >= 0; j--) {
+                if (str1[i] == str2[j]) {
                     opt[i][j] = opt[i + 1][j + 1] + 1;// 状态转移方程
-                else {
+                } else {
                     opt[i][j] = Math.max(opt[i + 1][j], opt[i][j + 1]);// 状态转移方程
                 }
             }
@@ -143,10 +142,10 @@ public class PublicString {
         System.out.println("substring2:" + new String(str2));
 
 
-        for (int m=0; m<opt.length ;m++) {
+        for (int m = 0; m < opt.length; m++) {
             int[] arr = opt[m];
-            for (int n=0;n<arr.length ;n++) {
-                System.out.print(opt[m][n]+"\t");
+            for (int n = 0; n < arr.length; n++) {
+                System.out.print(opt[m][n] + "\t");
             }
             System.out.println();
         }
@@ -154,28 +153,24 @@ public class PublicString {
         System.out.print("LCS:");
 
         int i = 0, j = 0;
-        while (i < substringLength1 && j < substringLength2)
-        {
-            if (str1[i] == str2[j])
-            {
+        while (i < substringLength1 && j < substringLength2) {
+            if (str1[i] == str2[j]) {
                 System.out.print(str1[i]);
                 i++;
                 j++;
-            }
-            else if (opt[i + 1][j] >= opt[i][j + 1])
+            } else if (opt[i + 1][j] >= opt[i][j + 1]) {
                 i++;
-            else
+            } else {
                 j++;
+            }
         }
         System.out.println();
         return opt[0][0];
     }
 
-    public static int computeQueue(String str1, String str2)
-    {
+    public static int computeQueue(String str1, String str2) {
         return computeQueue(str1.toCharArray(), str2.toCharArray());
     }
-
 
 
     public static void main(String[] args) {

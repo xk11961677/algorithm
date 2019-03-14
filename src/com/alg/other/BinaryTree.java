@@ -4,19 +4,21 @@ package com.alg.other;
 import java.util.ArrayDeque;
 
 /**
- * Created by sky on 16/3/13.
- * 二叉树,前序遍历 中序遍历 后续遍历 广度遍历 深度遍历
+ * 二叉树, 前序遍历 中序遍历 后续遍历 广度遍历 深度遍历
+ *
+ * @author
  */
 public class BinaryTree {
 
     /**
      * 节点类
      */
-    static class node{
+    static class node {
         node left;
         node right;
         node parent;
         int value;
+
         public node(int value) {
             this.value = value;
         }
@@ -26,34 +28,35 @@ public class BinaryTree {
      * 中序遍历 左中右
      * 前序遍历 中左右
      * 后序遍历 左右中
+     *
      * @param n
      */
     public static void printNode(node n) {
-        if (n.left!=null) {
+        if (n.left != null) {
             printNode(n.left);
         }
-        if(n.right!=null) {
+        if (n.right != null) {
             printNode(n.right);
         }
-        System.out.print(n.value+"\t");
+        System.out.print(n.value + "\t");
     }
-
 
 
     /**
      * 深度遍历,使用  栈
+     *
      * @param n
      */
-    public  static void depthOrder(node n) {
-       ArrayDeque<node> stack = new ArrayDeque<node>();
+    public static void depthOrder(node n) {
+        ArrayDeque<node> stack = new ArrayDeque<node>();
         stack.push(n);
-        while(stack.isEmpty()==false) {
+        while (stack.isEmpty() == false) {
             node no = stack.pop();
-            System.out.print(no.value+"\t");
-            if(no.right!=null) {
+            System.out.print(no.value + "\t");
+            if (no.right != null) {
                 stack.push(no.right);
             }
-            if(no.left!=null) {
+            if (no.left != null) {
                 stack.push(no.left);
             }
         }
@@ -63,28 +66,24 @@ public class BinaryTree {
 
     /**
      * 广度遍历,使用  队列
+     *
      * @param n
      */
-    public  static void levelOrder(node n) {
+    public static void levelOrder(node n) {
         ArrayDeque<node> queue = new ArrayDeque<node>();
         queue.add(n);
-        while(queue.isEmpty()==false) {
+        while (queue.isEmpty() == false) {
             node no = queue.remove();
-            System.out.print(no.value+"\t");
-            if(no.left!=null) {
+            System.out.print(no.value + "\t");
+            if (no.left != null) {
                 queue.add(no.left);
             }
-            if(no.right!=null) {
+            if (no.right != null) {
                 queue.add(no.right);
             }
         }
         System.out.println("\n");
     }
-
-
-
-
-
 
 
     public static void main(String[] args) {

@@ -2,7 +2,10 @@ package com.alg.other;
 
 /**
  * 回溯法求解 N 皇后问题
+ *
+ * @author
  */
+@SuppressWarnings("all")
 public class N_Queens {
 
     // 皇后的个数

@@ -1,4 +1,4 @@
-package com.alg.backtrack;
+package com.alg.backtracking;
 
 /**
  * n皇后问题
@@ -51,6 +51,12 @@ public class Queens {
 
     /**
      * 判断列、左对角线、右对角线 是否有满足放置皇后条件
+     *
+     *
+     * 判断是否在一条斜线上还有更加简便的做法，就是如果行互减的绝对值等于列互减的绝对值，那么就是在一条斜线上的。
+     * if (Math.abs(row - i) == Math.abs(column - queens[i])) {
+     *    return false;
+     * }
      *
      * @param row
      * @param column
