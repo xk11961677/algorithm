@@ -45,16 +45,40 @@
     
     recursion(level, param1,param2,...) :
     
-      // recursion terminator
+      # recursion terminator
       if level > maxLevel:
           print_result
           return
     
-      // precess logic in current level
+      # precess logic in current level
       process_data(level,data ...)
     
-      //drill down
+      # drill down
       self.recursion(level+1,p1,...)
     
-      //reverse the current level status if needed (此处是已经处理完[level+1]层，然后做的一些收尾逻辑)
+      # reverse the current level status if needed (此处是已经处理完[level+1]层，然后做的一些收尾逻辑)
       reverse_state(level)
+     
+分治模板:
+    
+    divide_conquer(problem, param1,param2,...) :
+    
+      # recursion terminator
+      if problem is None:
+          print_result
+          return
+    
+      # prepare data
+      data = prepare_data(problem)
+      subproblem = split_problem(problem,data)
+    
+      #conquer subproblem
+      subresult1 = self.divide_conquer(subproblem[0],p1,...)
+      subresult2 = self.divide_conquer(subproblem[1],p1,...)
+      subresult3 = self.divide_conquer(subproblem[2],p1,...)
+      ...
+    
+      # process and generate the final result
+      result = process(subresult1,subresult2,subresult3,...)
+      
+      
