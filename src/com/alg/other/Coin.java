@@ -2,22 +2,27 @@ package com.alg.other;
 
 /**
  * 计算硬币组合
+ *
+ * @author
  */
 public class Coin {
 
     /**
+     *
+     * brute force
+     *
      * 计算1元 2元 5元 有多少组合值为 100元
      */
     private static void calculate(int value) {
-        int i , j, k ;
+        int i, j, k;
         int n = 0;
 
-        for (i=0 ; i <(value/5) ;i++) {
-            for (j =0 ; j<=(value-5*i)/2  ; j++) {
-                for (k = 0 ; k <= (value-5*i-2*j) ; k++) {
-                    if (value == (k + 5*i + 2*j)) {
+        for (i = 0; i < (value / 5); i++) {
+            for (j = 0; j <= (value - 5 * i) / 2; j++) {
+                for (k = 0; k <= (value - 5 * i - 2 * j); k++) {
+                    if (value == (k + 5 * i + 2 * j)) {
                         n++;
-                       // System.out.println("i "+i +"\t j = "+j+"\t k="+k);
+                        // System.out.println("i "+i +"\t j = "+j+"\t k="+k);
                     }
                 }
             }
@@ -51,8 +56,8 @@ public class Coin {
 //        for (int x = 0; x <= targetNumber; x += 5) {
 //            count += (x + 2)/2;
 //        }
-        for (int z = 0; z <= targetNumber/5; z++) {
-            count += ((targetNumber - 5*z) + 2)/2;
+        for (int z = 0; z <= targetNumber / 5; z++) {
+            count += ((targetNumber - 5 * z) + 2) / 2;
         }
         long currentTime2 = System.currentTimeMillis();
         System.out.println("Time taked: " + (currentTime2 - currentTime1));

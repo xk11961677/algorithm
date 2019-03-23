@@ -81,4 +81,18 @@
       # process and generate the final result
       result = process(subresult1,subresult2,subresult3,...)
       
+二分查找模板:
+    
+    binary_search(data,left,right,target) :
+      
+      loop left<=right : 
+        mid = left + ((right-left)>>>2)
+        if data[mid] == target :
+          return mid
+        elsif data[mid] < target :
+          left = mid + 1
+        els
+          right = mid - 1
+          
+      return -1
       
