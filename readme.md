@@ -86,7 +86,7 @@
     binary_search(data,left,right,target) :
       
       loop left<=right : 
-        mid = left + ((right-left)>>>2)
+        mid = left + ((right-left)>>>1)
         if data[mid] == target :
           return mid
         elsif data[mid] < target :
