@@ -96,3 +96,20 @@
           
       return -1
       
+
+
+
+动态规划习题:
+
+    1. https://leetcode.com/problems/climbing-stairs/description/
+    2. https://leetcode.com/problems/triangle/description/
+    3. https://leetcode.com/problems/maximum-product-subarray/description/
+    4. https://leetcode.com/problems/best-time-to-buy-and-sell-stock/#/description
+    5. https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+    6. https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+    7. https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/
+    8. https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
+    9. https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+    10.https://leetcode.com/problems/longest-increasing-subsequence 
+    11.https://leetcode.com/problems/coin-change/ 
+    12.https://leetcode.com/problems/edit-distance/
