@@ -25,6 +25,7 @@ public class Permutation {
                 System.out.print(nums[j] + "\t");
             }
             System.out.println();
+            return;
         }
 
         for (int i = first; i <= end; i++) {
