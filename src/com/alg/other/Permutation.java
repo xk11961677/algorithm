@@ -48,6 +48,6 @@ public class Permutation {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 2, 3};
         Permutation permutation = new Permutation();
-        permutation.permutation(nums, 0, 2);
+        permutation.permutation(nums, 0, nums.length-1);
     }
 }
