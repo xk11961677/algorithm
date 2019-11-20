@@ -1,9 +1,11 @@
-package com.alg.other.struct;
+package com.alg.struct;
 
 import java.util.LinkedList;
 
 /**
  * 图数据结构(使用 [邻接表] 方式存储)
+ *
+ * @author
  */
 public class Graph {
 

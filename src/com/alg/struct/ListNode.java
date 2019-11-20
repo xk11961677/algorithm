@@ -1,4 +1,4 @@
-package com.alg.leetcode.struct;
+package com.alg.struct;
 
 /**
  * 单链表结构实体

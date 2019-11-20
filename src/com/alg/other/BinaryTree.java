@@ -13,13 +13,13 @@ public class BinaryTree {
     /**
      * 节点类
      */
-    static class node {
-        node left;
-        node right;
-        node parent;
+    static class Node {
+        Node left;
+        Node right;
+        Node parent;
         int value;
 
-        public node(int value) {
+        public Node(int value) {
             this.value = value;
         }
     }
@@ -31,7 +31,7 @@ public class BinaryTree {
      *
      * @param n
      */
-    public static void printNode(node n) {
+    public static void printNode(Node n) {
         if (n.left != null) {
             printNode(n.left);
         }
@@ -47,11 +47,11 @@ public class BinaryTree {
      *
      * @param n
      */
-    public static void depthOrder(node n) {
-        ArrayDeque<node> stack = new ArrayDeque<node>();
+    public static void depthOrder(Node n) {
+        ArrayDeque<Node> stack = new ArrayDeque<Node>();
         stack.push(n);
         while (stack.isEmpty() == false) {
-            node no = stack.pop();
+            Node no = stack.pop();
             System.out.print(no.value + "\t");
             if (no.right != null) {
                 stack.push(no.right);
@@ -69,11 +69,11 @@ public class BinaryTree {
      *
      * @param n
      */
-    public static void levelOrder(node n) {
-        ArrayDeque<node> queue = new ArrayDeque<node>();
+    public static void levelOrder(Node n) {
+        ArrayDeque<Node> queue = new ArrayDeque<Node>();
         queue.add(n);
         while (queue.isEmpty() == false) {
-            node no = queue.remove();
+            Node no = queue.remove();
             System.out.print(no.value + "\t");
             if (no.left != null) {
                 queue.add(no.left);
@@ -87,16 +87,16 @@ public class BinaryTree {
 
 
     public static void main(String[] args) {
-        node n = new node(0);
-        node n1 = new node(1);
-        node n2 = new node(2);
-        node n3 = new node(3);
-        node n4 = new node(4);
-        node n5 = new node(5);
-        node n6 = new node(6);
-        node n7 = new node(7);
-        node n8 = new node(8);
-        node n9 = new node(9);
+        Node n = new Node(0);
+        Node n1 = new Node(1);
+        Node n2 = new Node(2);
+        Node n3 = new Node(3);
+        Node n4 = new Node(4);
+        Node n5 = new Node(5);
+        Node n6 = new Node(6);
+        Node n7 = new Node(7);
+        Node n8 = new Node(8);
+        Node n9 = new Node(9);
         n.parent = null;
         n.left = n1;
         n.right = n2;

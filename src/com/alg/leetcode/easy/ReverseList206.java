@@ -1,6 +1,6 @@
 package com.alg.leetcode.easy;
 
-import com.alg.leetcode.struct.ListNode;
+import com.alg.struct.ListNode;
 
 /**
  * Definition for singly-linked list.

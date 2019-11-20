@@ -1,8 +1,6 @@
 package com.alg.other;
 
 /**
- * Created by sky on 16/4/4.
- *
  * @author
  */
 public class Group {

@@ -1,6 +1,6 @@
 package com.alg.other;
 
-import com.alg.other.struct.Graph;
+import com.alg.struct.Graph;
 
 import java.util.LinkedList;
 
